@@ -81,9 +81,7 @@ void fileLoop(std::string dir) {
             completedFiles++; 
             std::string folderPath = entry.path().string();
             replace(folderPath, originalDir, "");
-            if (originalDir._Starts_with("C:\\") || originalDir._Starts_with("C:/")) {
-                folderPath.replace(0, 1, "");
-            }
+            
             std::cout << "(" << floor(completedFiles / allFiles * 100) << "%) Successfully obfusacted " << folderPath << std::endl;
         }
     }
