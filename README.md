@@ -13,4 +13,4 @@ First, open the Lua Obfuscator.sln
 
 Second, make your changes
 
-Third, with Visual Studio, at the top press Build then Build Solution (this can change depending on your IDE this)
+Third, with Visual Studio, at the top press Build then Build Solution (this can change depending on your IDE)
