@@ -11,6 +11,6 @@ Third, run the exe and type the path to the lua files you'd like to be obfuscate
 # How to compile
 First, open the Lua Obfuscator.sln
 
-Second, Make your changes
+Second, make your changes
 
 Third, with Visual Studio, at the top press Build then Build Solution (this can change depending on your IDE this)
