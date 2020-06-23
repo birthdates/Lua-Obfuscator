@@ -8,7 +8,6 @@ int main()
     std::string dir{};
     try {
         std::getline(std::cin, dir);
-        system("CLS");
         originalDir = dir;
         startMS = std::chrono::duration_cast<std::chrono::milliseconds>(
             std::chrono::system_clock::now().time_since_epoch()
