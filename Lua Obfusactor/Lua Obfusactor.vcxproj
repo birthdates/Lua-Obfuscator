@@ -154,7 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Lua Obfusactor.cpp" />
+    <ClCompile Include="obfuscator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="obf.lua">
@@ -167,6 +167,7 @@
     <Image Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="obfuscator.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
