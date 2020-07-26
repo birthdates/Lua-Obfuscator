@@ -121,11 +121,8 @@ bool replace(std::string& str, const std::string& from, const std::string& to) {
 
 bool ends_with(const std::string& mainStr, const std::string& toMatch)
 {
-    if (mainStr.size() >= toMatch.size() &&
-        mainStr.compare(mainStr.size() - toMatch.size(), toMatch.size(), toMatch) == 0)
-        return true;
-    else
-        return false;
+    return mainStr.size() >= toMatch.size() &&
+        mainStr.compare(mainStr.size() - toMatch.size(), toMatch.size(), toMatch) == 0;
 }
 
 bool is_invalid_file(fs::path file) {
