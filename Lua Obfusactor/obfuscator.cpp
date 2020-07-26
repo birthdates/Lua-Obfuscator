@@ -48,7 +48,7 @@ void count_files(std::string dir) {
             count_files(entry.path().string());
             continue;
         }
-        if (entry.path().extension() != ".lua" || entry.path().filename().string().find("__resource") != std::string::npos || entry.path().filename().string().find("fxmanifest") != std::string::npos) {
+        if (!is_invalid_file(entry.path())) {
             continue;
         }
         allFiles++;
@@ -63,7 +63,7 @@ void file_loop(std::string dir) {
             file_loop(entry.path().string());
             continue;
         }
-        if (entry.path().extension() != ".lua" || entry.path().filename().string().find("__resource") != std::string::npos || entry.path().filename().string().find("fxmanifest") != std::string::npos) {
+        if (!is_invalid_file(entry.path())) {
             continue;
         }
         std::string line;
@@ -126,4 +126,9 @@ bool ends_with(const std::string& mainStr, const std::string& toMatch)
         return true;
     else
         return false;
+}
+
+bool is_invalid_file(fs::path file) {
+    std::string path = file.filename().string();
+    return file.extension() != ".lua" || path.find("__resource") != std::string::npos || path.find("fxmanifest") != std::string::npos;
 }

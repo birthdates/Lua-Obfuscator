@@ -28,6 +28,7 @@ std::chrono::milliseconds startMS;
 
 bool replace(std::string& str, const std::string& from, const std::string& to);
 bool ends_with(const std::string& mainStr, const std::string& toMatch);
+bool valid_file(fs::path file);
 
 void file_loop(std::string dir);
 void count_files(std::string dir);
