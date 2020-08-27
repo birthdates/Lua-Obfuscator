@@ -2,6 +2,7 @@
  Obfuscate your lua code because it's so easy to steal!
 
 # How to use
+
 First, download it via the releases tab
 
 Second, make sure to extract the files (won't work if you just open it in the zip)
@@ -14,3 +15,6 @@ First, open the Lua Obfuscator.sln
 Second, make your changes
 
 Third, with Visual Studio, at the top press Build then Build Solution (this can change depending on your IDE)
+
+# I have an error
+If you get a VCRedist error, please download the C++ Libraries here https://support.microsoft.com/en-ca/help/2977003/the-latest-supported-visual-c-downloads.
