@@ -17,9 +17,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="lua.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <CopyFileToFolders Include="obf.lua" />
+    <None Include="obf.lua" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="icon.ico">
@@ -33,11 +31,6 @@
     <ClInclude Include="obfuscator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Resource.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="obfuscator.cpp">
