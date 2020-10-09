@@ -4,18 +4,16 @@ int main()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
-    std::cout << "Input directory:" << std::endl;
+    std::cout << "Input directory:" << ENDL;
     std::string dir{};
     try {
         std::getline(std::cin, dir);
         originalDir = dir;
-        startMS = std::chrono::duration_cast<std::chrono::milliseconds>(
-            std::chrono::system_clock::now().time_since_epoch()
-            );
+        std::chrono::milliseconds startMS = get_time();
         count_files(dir);
 
         if (allFiles <= 0) {
-            std::cout << "There are no files to obfuscate in that directory!" << std::endl;
+            std::cout << "There are no files to obfuscate in that directory!" << ENDL;
             try_exit();
             return 0;
         }
@@ -26,16 +24,14 @@ int main()
         luaL_dostring(L, o_54b23f86700cdd0d671bbeaab0542ce5);
         file_loop(dir);
         lua_close(L);
-        std::chrono::milliseconds newMS = std::chrono::duration_cast<std::chrono::milliseconds>(
-            std::chrono::system_clock::now().time_since_epoch()
-            );
-        std::cout << "Finished obfuscating " << allFiles << " file(s) in " << (newMS - startMS).count() << "ms." << std::endl;
+        std::chrono::milliseconds newMS = get_time();
+        std::cout << "Finished obfuscating " << allFiles << " file(s) in " << (newMS - startMS).count() << "ms." << ENDL;
         try_exit();
     }
-    catch (const std::exception& e) {
-        std::cout << "ERROR: " << e.what() << std::endl;
-        std::cout << "Error opening the directory \"" + dir + "\"!" << std::endl;
-        std::cout << "Trying again..." << std::endl;
+    catch (const std::exception& exception) {
+        std::cout << "ERROR: " << exception.what() << ENDL;
+        std::cout << "Error opening the directory \"" + dir + "\"!" << ENDL;
+        std::cout << "Trying again..." << ENDL;
         return main();
     }
 }
@@ -100,15 +96,14 @@ void file_loop(std::string dir) {
             if (originalDir._Starts_with("C:\\") || originalDir._Starts_with("C:/")) {
                 folderPath.replace(0, 1, "");
             }
-            std::cout << "(" << floor(completedFiles / allFiles * 100) << "%) Successfully obfusacted " << folderPath << std::endl;
+            std::cout << "(" << floor(completedFiles / allFiles * 100) << "%) Successfully obfusacted " << folderPath << ENDL;
         }
     }
 }
 
 void try_exit() {
-    std::cout << "Press any key to exit..." << std::endl;
-    getchar();
-    exit(0);
+    std::cout << "Press any key to exit..." << ENDL;
+    exit(getchar());
 }
 
 bool replace(std::string& str, const std::string& from, const std::string& to) {
@@ -128,4 +123,10 @@ bool ends_with(const std::string& mainStr, const std::string& toMatch)
 bool is_invalid_file(fs::path file) {
     std::string path = file.filename().string();
     return file.extension().string() != ".lua" || path._Starts_with("__resource") || path._Starts_with("fxmanifest");
+}
+
+std::chrono::milliseconds get_time() {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::system_clock::now().time_since_epoch()
+        );
 }
