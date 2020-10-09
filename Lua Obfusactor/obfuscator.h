@@ -2,11 +2,8 @@
 #include <string>
 #include <filesystem>
 #include <fstream>
-#include <math.h>
 #include <windows.h>
 #include <chrono>
-#include <cstring>
-#include <algorithm>
 
 extern "C" {
 #include <lua.h>
