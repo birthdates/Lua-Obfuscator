@@ -87,7 +87,7 @@ void file_loop(std::string dir) {
 
             std::ofstream obfFile(entry.path());
 
-            obfFile << "load(\"" << obfCode << "\")()";
+            obfFile << "local loading = load or loadstring\nloading(\"" << obfCode << "\")()";
 
             obfFile.close();
             completedFiles++; 
