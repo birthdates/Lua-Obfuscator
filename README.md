@@ -17,4 +17,4 @@ Second, make your changes
 Third, with Visual Studio, at the top press Build then Build Solution (this can change depending on your IDE)
 
 # I have an error
-If you get a VCRedist error, please download the C++ Libraries here https://support.microsoft.com/en-ca/help/2977003/the-latest-supported-visual-c-downloads.
+If you have an issue please open one on GitHub and I'll try to help. 
